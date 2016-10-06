@@ -36,18 +36,30 @@ console.log('There is now 8 elements in arr1');
 //Hint: use the '.unshift()' method of array. Can you look up the API for it?
 var arr2 = [];
 
-for (var i = arr1.length; i >= 0; i--) {
+var arr4 = [];
+
+
+for (var i = arr1.length; i >=0; i--) {
 	arr2.push(arr1[i]);
 }
 
-console.log('The inverse array: ' + arr2);
+console.log('The inverse array:' + arr2);
 
+arr1.forEach(function(current) {
+	arr4.unshift(current);
+});
+
+console.log('The -other- inverse array:' + arr2);
 
 //Task 5 OPTIONAL: filter out all the odd values in arr1, keeping the even values
 //Hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 var arr3 = arr1.filter(function(el){
-	if (el %2 === 0) {
-		arr3 = arr3.push(el);
+	if (el % 2 === 0) {
+		arr1.splice(el);
+
+		return arr1;
+
+		//return !(el %2);  --- > simpler solution
 	}
 });
 console.log(arr3);
